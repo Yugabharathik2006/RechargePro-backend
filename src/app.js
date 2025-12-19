@@ -8,6 +8,7 @@ require('./config/passport'); // Initialize passport strategies
 const userRoutes = require('./routes/userRoutes');
 const transactionRoutes = require('./routes/transactionRoutes');
 const planRoutes = require('./routes/planRoutes');
+const supportRoutes = require('./routes/supportRoutes');
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(passport.initialize());
 app.use('/auth', userRoutes);
 app.use('/transactions', transactionRoutes);
 app.use('/plans', planRoutes);
+app.use('/support', supportRoutes);
 
 const PORT = process.env.PORT || 3000;
 
