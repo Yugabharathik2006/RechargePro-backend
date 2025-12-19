@@ -12,11 +12,31 @@ const userSchema = new mongoose.Schema({
     },
     phone: {
         type: String,
-        required: true,
+        required: function () {
+            // Phone is required only for non-Google signups
+            return !this.googleId;
+        },
     },
     password: {
         type: String,
-        required: true,
+        required: function () {
+            // Password is required only for non-Google signups
+            return !this.googleId;
+        },
+    },
+    googleId: {
+        type: String,
+        unique: true,
+        sparse: true, // Allows null values while maintaining uniqueness
+    },
+    avatar: {
+        type: String,
+        default: null,
+    },
+    authProvider: {
+        type: String,
+        enum: ["local", "google"],
+        default: "local",
     },
     role: {
         type: String,

@@ -1,0 +1,60 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory
+coverage/
+
+# Build output
+dist/
+build/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Debug files
+.node_inspect_*
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Yarn
+yarn-error.log
+.yarn-integrity
+
+# dotenv environment variable files
+*.env
+
+# Uploaded files (if applicable)
+uploads/

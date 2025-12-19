@@ -1,10 +1,13 @@
+require('dotenv').config(); // Load env vars FIRST
+
 const express = require('express');
 const cors = require('cors');
+const passport = require('passport');
 const connectDB = require('./config/db');
+require('./config/passport'); // Initialize passport strategies
 const userRoutes = require('./routes/userRoutes');
 const transactionRoutes = require('./routes/transactionRoutes');
 const planRoutes = require('./routes/planRoutes');
-require('dotenv').config();
 
 const app = express();
 
@@ -12,8 +15,12 @@ const app = express();
 connectDB();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    credentials: true
+}));
 app.use(express.json());
+app.use(passport.initialize());
 
 // Routes
 app.use('/auth', userRoutes);
